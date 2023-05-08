@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216521175667",
+    "project_id": "examscalendar-ee0db",
+    "storage_bucket": "examscalendar-ee0db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216521175667:android:5d043a58769de49ca7f006",
+        "android_client_info": {
+          "package_name": "com.example.lab3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216521175667-q2lljcidsjuieqtk109utofum4appf5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbzrRR9ZgjFEsCQdKWH6orXC1d9ypm0UU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216521175667-q2lljcidsjuieqtk109utofum4appf5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
