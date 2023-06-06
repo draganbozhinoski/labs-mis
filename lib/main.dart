@@ -1,8 +1,10 @@
 import 'package:cron/cron.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:lab3/widgets/MapWidget.dart';
 import 'package:lab3/widgets/list_exams.dart';
 import 'package:lab3/widgets/nov_element.dart';
+import 'package:lab3/widgets/MapWidget.dart';
 import 'auth.dart';
 import 'model/exam.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -68,6 +70,9 @@ class _ExamsAppState extends State<ExamsApp> {
             icon: const Icon(Icons.add),
           ),
           IconButton(onPressed: signOut, icon: const Icon(Icons.logout)),
+          IconButton(onPressed: () => {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MapWidget(exams: exams)))
+          }, icon: const Icon(Icons.map))
         ],
       ),
       body: Column(

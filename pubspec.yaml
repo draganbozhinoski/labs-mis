@@ -43,6 +43,12 @@ dependencies:
   flutter_local_notifications: ^14.1.1
   rxdart: ^0.27.7
   cron: ^0.5.1
+  flutter_osm_plugin: ^0.53.2
+  geolocator: ^9.0.2
+  geocoding: ^2.1.0
+  flutter_map: ^4.0.0
+  latlng: ^1.0.0
+  latlong2: ^0.8.2
 
 dev_dependencies:
   flutter_test:
