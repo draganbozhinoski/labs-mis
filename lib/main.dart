@@ -1,3 +1,4 @@
+import 'package:cron/cron.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lab3/widgets/list_exams.dart';
@@ -7,6 +8,7 @@ import 'model/exam.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:lab3/widget_tree.dart';
 import 'package:firebase_core/firebase_core.dart';
+import '../services/notification_service.dart';
 
 final kToday = DateTime.now();
 final kFirstDay = DateTime(kToday.year, kToday.month - 3, kToday.day);
@@ -31,6 +33,9 @@ class _ExamsAppState extends State<ExamsApp> {
   DateTime _selectedDay = DateTime.now();
   DateTime _focusedDay = DateTime.now();
   final User? user = Auth().currentUser!;
+  final cron = Cron();
+  late final LocalNotificationService service;
+  static int increment = 0;
 
   Future<void> signOut() async {
     await Auth().signOut();
@@ -43,6 +48,9 @@ class _ExamsAppState extends State<ExamsApp> {
   void initState() {
     _selectedDay = _focusedDay;
     selectedExams = _getExamsForDay(DateTime.now(),user!);
+    service = LocalNotificationService();
+    service.intialize();
+    startCron();
     super.initState();
   }
 
@@ -128,5 +136,14 @@ class _ExamsAppState extends State<ExamsApp> {
     setState(() {
       exams.add(exam);
     });
+  }
+  void startCron() async {
+    cron.schedule(Schedule.parse("0 * * * *"), () => sendNotification());
+  }
+  sendNotification() async {
+    await service.showNotification(
+        id: increment++,
+        title: 'Exams',
+        body: 'Maybe there are new exams, please check the calendar!');
   }
 }
